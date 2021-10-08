@@ -14,4 +14,14 @@ class NoticeRepositoryImpl @Inject constructor(
         val response = remote.getNoticeSports()
         return response.toNoticeUiDomain(response.articles)
     }
+
+    override suspend fun fetchNoticeTechnology(): List<NoticeUiDomain> {
+        val response = remote.getNoticeTechnology()
+        return response.toNoticeUiDomain(response.articles)
+    }
+
+    override suspend fun fetchNoticeScience(): List<NoticeUiDomain> {
+        val response = remote.getNoticeScience()
+        return response.toNoticeUiDomain(response.articles)
+    }
 }

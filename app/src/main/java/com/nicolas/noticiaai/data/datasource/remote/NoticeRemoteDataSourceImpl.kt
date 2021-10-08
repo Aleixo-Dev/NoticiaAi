@@ -7,4 +7,8 @@ class NoticeRemoteDataSourceImpl @Inject constructor(
 ) : NoticeRemoteDataSource {
 
     override suspend fun getNoticeSports() = api.getNoticeSports()
+
+    override suspend fun getNoticeTechnology() = api.getNoticeTechnology()
+
+    override suspend fun getNoticeScience() = api.getNoticeScience()
 }
