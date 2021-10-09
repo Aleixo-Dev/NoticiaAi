@@ -7,6 +7,7 @@ import com.nicolas.noticiaai.R
 import com.nicolas.noticiaai.MainActivity
 import android.content.Intent
 import android.os.Handler
+import com.nicolas.noticiaai.presentation.register.RegisterActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @SuppressLint("CustomSplashScreen")
@@ -19,12 +20,12 @@ class SplashActivity : AppCompatActivity() {
 
         Handler().postDelayed(
             {
-                startActivity(Intent(this, MainActivity::class.java))
+                startActivity(Intent(this, RegisterActivity::class.java))
                 finish()
             },SPLASH_TIME_OUT)
     }
 
     companion object{
-        const val SPLASH_TIME_OUT = 3000L
+        const val SPLASH_TIME_OUT = 1000L
     }
 }
