@@ -6,4 +6,7 @@ interface NoticeRepository {
 
     suspend fun fetchNoticeSports(): List<NoticeUiDomain>
 
+    suspend fun fetchNoticeTechnology(): List<NoticeUiDomain>
+
+    suspend fun fetchNoticeScience(): List<NoticeUiDomain>
 }
