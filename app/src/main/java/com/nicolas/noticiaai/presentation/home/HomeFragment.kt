@@ -1,5 +1,7 @@
 package com.nicolas.noticiaai.presentation.home
 
+import android.annotation.SuppressLint
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -7,15 +9,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.viewModels
-import com.nicolas.noticiaai.common.AdapterSub
-import com.nicolas.noticiaai.common.AdapterMain
-import com.nicolas.noticiaai.common.LoadingUtils
-import com.nicolas.noticiaai.common.showToast
 import com.nicolas.noticiaai.databinding.HomeFragmentBinding
 import com.nicolas.noticiaai.domain.model.NoticeUiDomain
 import dagger.hilt.android.AndroidEntryPoint
 import android.content.Intent
 import android.net.Uri
+import android.widget.Toast
+import com.nicolas.noticiaai.common.*
 import java.net.URI
 import java.net.URL
 
@@ -50,6 +50,18 @@ class HomeFragment : Fragment() {
         observerNoticeSports()
         observerNoticeTechnology()
         observerNoticeScience()
+        getValueNameKey()
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun getValueNameKey() = binding.apply {
+        val sharedPreferences =
+            activity?.getSharedPreferences(
+                Constants.USER_NAME_APP,
+                Context.MODE_PRIVATE
+            )
+        val name = sharedPreferences?.getString(Constants.USER_NAME, null)
+        tvNameUser.text = "Oi,$name"
     }
 
     private fun observerNoticeScience() {

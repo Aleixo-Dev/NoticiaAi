@@ -79,9 +79,7 @@ dependencies {
 
     //CircleView
     implementation 'de.hdodenhof:circleimageview:3.1.0'
-
-    //Paging3
-    implementation "androidx.paging:paging-runtime-ktx:3.1.0-alpha04"
+    
     implementation "com.airbnb.android:lottie:3.7.0"
 
     //Glide

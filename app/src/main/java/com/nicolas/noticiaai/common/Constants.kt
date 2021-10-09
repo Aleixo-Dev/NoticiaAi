@@ -11,5 +11,7 @@ object Constants {
     const val CATEGORY_SCIENCE = "science"
     const val CATEGORY_BUSINESS = "business"
     const val CATEGORY_TECHNOLOGY = "technology"
+    const val USER_NAME = "name"
+    const val USER_NAME_APP = "name"
 
 }
