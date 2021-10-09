@@ -4,7 +4,7 @@ plugins {
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
     id 'com.google.secrets_gradle_plugin' version '0.6'
-
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -40,6 +40,11 @@ android {
 }
 
 dependencies {
+
+    //Firebase
+    implementation platform('com.google.firebase:firebase-bom:28.4.2')
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation 'com.google.firebase:firebase-auth'
 
     //Dagger-Hilt
     implementation "com.google.dagger:hilt-android:2.38.1"

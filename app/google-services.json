@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "473812428477",
+    "project_id": "noticiaai",
+    "storage_bucket": "noticiaai.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:473812428477:android:4fa00e61be8514e775f9d4",
+        "android_client_info": {
+          "package_name": "com.nicolas.noticiaai"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "473812428477-j39rrk94mi34ipa3ue0jjleiq1td6bak.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.nicolas.noticiaai",
+            "certificate_hash": "ce84d1bf86c54727dff8859754d593cdcf5c17ba"
+          }
+        },
+        {
+          "client_id": "473812428477-t22n8cillbqael58rgis0crui92fas7a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYG9yt_2eT4b-Q0V0tcia6c4v5ZmJgtAc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "473812428477-t22n8cillbqael58rgis0crui92fas7a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
