@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NoticiaAi">
         <activity
+            android:name=".presentation.login.LoginActivity"
+            android:exported="true" />
+        <activity
             android:name=".presentation.register.RegisterActivity"
             android:exported="true" />
         <activity

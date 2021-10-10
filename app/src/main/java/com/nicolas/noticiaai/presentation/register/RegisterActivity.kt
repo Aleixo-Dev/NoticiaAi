@@ -12,6 +12,7 @@ import com.google.firebase.auth.FirebaseAuthWeakPasswordException
 import com.nicolas.noticiaai.databinding.ActivityRegisterBinding
 import com.nicolas.noticiaai.MainActivity
 import com.nicolas.noticiaai.common.Constants
+import com.nicolas.noticiaai.presentation.login.LoginActivity
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -23,6 +24,10 @@ class RegisterActivity : AppCompatActivity() {
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
         auth = FirebaseAuth.getInstance()
+
+        binding.tvEnterAccount.setOnClickListener {
+            goToLoginAccount()
+        }
 
         //TODO: Refatorar tudo.
         binding.apply {
@@ -56,6 +61,10 @@ class RegisterActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    private fun goToLoginAccount() = binding.apply {
+        startActivity(Intent(this@RegisterActivity, LoginActivity::class.java))
     }
 
     override fun onStart() {
