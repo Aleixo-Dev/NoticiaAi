@@ -65,6 +65,7 @@ class RegisterActivity : AppCompatActivity() {
 
     private fun goToLoginAccount() = binding.apply {
         startActivity(Intent(this@RegisterActivity, LoginActivity::class.java))
+        finish()
     }
 
     override fun onStart() {
