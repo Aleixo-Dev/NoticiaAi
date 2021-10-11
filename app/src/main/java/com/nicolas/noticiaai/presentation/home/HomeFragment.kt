@@ -15,7 +15,9 @@ import dagger.hilt.android.AndroidEntryPoint
 import android.content.Intent
 import android.net.Uri
 import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
 import com.nicolas.noticiaai.common.*
+import com.nicolas.noticiaai.presentation.login.LoginActivity
 import java.net.URI
 import java.net.URL
 
@@ -23,6 +25,7 @@ import java.net.URL
 class HomeFragment : Fragment() {
 
     private var imageUri: Uri? = null
+    private lateinit var auth: FirebaseAuth
 
     private val getContent =
         registerForActivityResult(ActivityResultContracts.GetContent()) {
@@ -118,6 +121,12 @@ class HomeFragment : Fragment() {
     private fun setupListeners() = binding.apply {
         profileImage.setOnClickListener {
             getImageGallery()
+        }
+        imgLogout.setOnClickListener {
+            auth = FirebaseAuth.getInstance()
+            auth.signOut()
+            startActivity(Intent(requireContext(), LoginActivity::class.java))
+            activity?.finish()
         }
     }
 
