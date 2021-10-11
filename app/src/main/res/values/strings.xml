@@ -3,4 +3,11 @@
     <string name="oi_nicolas">Oi, Nicolas</string>
     <string name="principais_not_cias">principais notícias</string>
     <string name="fique_por_dentro_das">Fique por dentro das</string>
+    <string name="registrar_se">Registrar-se</string>
+    <string name="bem_vindo_fique_por_dentro_das_principais_not_cias">Bem-vindo! fique por dentro das principais notícias.</string>
+    <string name="nome">Nome</string>
+    <string name="e_mail">E-mail</string>
+    <string name="senha">Senha</string>
+    <string name="j_possui_uma_conta_click_me">Já possui uma conta? click-me</string>
+    <string name="img">img</string>
 </resources>
