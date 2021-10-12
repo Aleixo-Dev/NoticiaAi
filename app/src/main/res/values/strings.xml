@@ -10,4 +10,9 @@
     <string name="senha">Senha</string>
     <string name="j_possui_uma_conta_click_me">Já possui uma conta? click-me</string>
     <string name="img">img</string>
+    <string name="noticias">Noticias</string>
+    <string name="item">Item</string>
+    <string name="perfil">Perfil</string>
+    <string name="inicio">Inicio</string>
+    <string name="notice_name">Notice</string>
 </resources>
