@@ -9,21 +9,31 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthEmailException
 import com.google.firebase.auth.FirebaseAuthUserCollisionException
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.storage.FirebaseStorage
 import com.nicolas.noticiaai.databinding.ActivityRegisterBinding
 import com.nicolas.noticiaai.MainActivity
 import com.nicolas.noticiaai.common.Constants
 import com.nicolas.noticiaai.presentation.login.LoginActivity
+import dagger.hilt.android.AndroidEntryPoint
+import java.util.*
 
+@AndroidEntryPoint
 class RegisterActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityRegisterBinding
     private lateinit var auth: FirebaseAuth
+    private lateinit var firebaseFirestore: FirebaseFirestore
+    private lateinit var firebaseStorage: FirebaseStorage
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         auth = FirebaseAuth.getInstance()
+        firebaseFirestore = FirebaseFirestore.getInstance()
+        firebaseFirestore.clearPersistence()
 
         binding.tvEnterAccount.setOnClickListener {
             goToLoginAccount()

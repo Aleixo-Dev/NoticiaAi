@@ -1,6 +1,7 @@
 package com.nicolas.noticiaai.presentation.home
 
 import android.annotation.SuppressLint
+import android.app.Application
 import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -16,8 +17,11 @@ import android.content.Intent
 import android.net.Uri
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.SetOptions
 import com.nicolas.noticiaai.common.*
 import com.nicolas.noticiaai.presentation.login.LoginActivity
+import kotlinx.coroutines.flow.merge
 import java.net.URI
 import java.net.URL
 
@@ -49,22 +53,31 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        auth = FirebaseAuth.getInstance()
+
         setupListeners()
         observerNoticeSports()
         observerNoticeTechnology()
         observerNoticeScience()
         getValueNameKey()
+
+        //TODO: inicio refator, prioridade:alta.
+        val get = activity?.getSharedPreferences(tag, Context.MODE_PRIVATE)
+        val image = get?.getString("Image", null)
     }
 
     @SuppressLint("SetTextI18n")
-    private fun getValueNameKey() = binding.apply {
-        val sharedPreferences =
-            activity?.getSharedPreferences(
-                Constants.USER_NAME_APP,
-                Context.MODE_PRIVATE
-            )
-        val name = sharedPreferences?.getString(Constants.USER_NAME, null)
-        tvNameUser.text = "Oi,$name"
+    private fun getValueNameKey(): String {
+        binding.apply {
+            val sharedPreferences =
+                activity?.getSharedPreferences(
+                    Constants.USER_NAME_APP,
+                    Context.MODE_PRIVATE
+                )
+            val name = sharedPreferences?.getString(Constants.USER_NAME, null)
+            tvNameUser.text = "Oi,$name"
+            return name.toString()
+        }
     }
 
     private fun observerNoticeScience() {
@@ -121,12 +134,19 @@ class HomeFragment : Fragment() {
     private fun setupListeners() = binding.apply {
         profileImage.setOnClickListener {
             getImageGallery()
+
+            val sharedPreferences = activity?.getSharedPreferences(tag, Context.MODE_PRIVATE)
+            sharedPreferences?.edit()
+                ?.putString("Image", imageUri.toString())
+                ?.apply()
         }
         imgLogout.setOnClickListener {
-            auth = FirebaseAuth.getInstance()
             auth.signOut()
             startActivity(Intent(requireContext(), LoginActivity::class.java))
             activity?.finish()
+        }
+        tvNameUser.setOnClickListener {
+            viewModel.createUser(auth.currentUser!!.uid, getValueNameKey(), imageUri)
         }
     }
 
