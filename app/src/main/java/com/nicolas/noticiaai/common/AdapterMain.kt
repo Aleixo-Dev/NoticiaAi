@@ -26,7 +26,6 @@ class AdapterMain(
         fun bind(notice: NoticeUiDomain) {
             tvDescriptionNotice.text = notice.content
             tvSourceName.text = notice.sourceName
-            tvDate.text = Utility.formatDate(notice.publishedAt)
             loadImageUrl(imgContainer, notice.urlToImage)
         }
 
