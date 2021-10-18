@@ -5,10 +5,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.google.firebase.auth.FirebaseAuth
 import com.nicolas.noticiaai.MainActivity
-import com.nicolas.noticiaai.R
 import com.nicolas.noticiaai.common.showToast
 import com.nicolas.noticiaai.databinding.ActivityLoginBinding
 import com.nicolas.noticiaai.presentation.register.RegisterActivity
+import java.io.File
 
 class LoginActivity : AppCompatActivity() {
 
@@ -21,6 +21,8 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         auth = FirebaseAuth.getInstance()
+
+        File(this.cacheDir.path).deleteRecursively()
 
         binding.tvCreateNewAccount.setOnClickListener {
             goToCreateNewAccount()
