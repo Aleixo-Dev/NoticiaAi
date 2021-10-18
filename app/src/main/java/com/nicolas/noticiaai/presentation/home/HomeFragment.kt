@@ -21,6 +21,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 import com.nicolas.noticiaai.common.*
 import com.nicolas.noticiaai.presentation.login.LoginActivity
+import com.nicolas.noticiaai.presentation.splash.SplashActivity
 import kotlinx.coroutines.flow.merge
 import java.net.URI
 import java.net.URL
@@ -142,7 +143,7 @@ class HomeFragment : Fragment() {
         }
         imgLogout.setOnClickListener {
             auth.signOut()
-            startActivity(Intent(requireContext(), LoginActivity::class.java))
+            startActivity(Intent(requireContext(), SplashActivity::class.java))
             activity?.finish()
         }
         tvNameUser.setOnClickListener {
