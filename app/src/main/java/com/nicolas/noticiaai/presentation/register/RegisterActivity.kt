@@ -16,6 +16,7 @@ import com.nicolas.noticiaai.MainActivity
 import com.nicolas.noticiaai.common.Constants
 import com.nicolas.noticiaai.presentation.login.LoginActivity
 import dagger.hilt.android.AndroidEntryPoint
+import java.io.File
 import java.util.*
 
 @AndroidEntryPoint
@@ -34,6 +35,8 @@ class RegisterActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         firebaseFirestore = FirebaseFirestore.getInstance()
         firebaseFirestore.clearPersistence()
+
+        File(this.cacheDir.path).deleteRecursively()
 
         binding.tvEnterAccount.setOnClickListener {
             goToLoginAccount()
