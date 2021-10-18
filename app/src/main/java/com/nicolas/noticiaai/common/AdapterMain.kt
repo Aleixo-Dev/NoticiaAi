@@ -21,11 +21,13 @@ class AdapterMain(
         private val tvDescriptionNotice: TextView = binding.tvDescriptionNotice
         private val tvSourceName: TextView = binding.tvSourceName
         private val imgContainer: ImageView = binding.imgContainer
+        private val tvDate: TextView = binding.tvDate
 
         fun bind(notice: NoticeUiDomain) {
             tvDescriptionNotice.text = notice.content
             tvSourceName.text = notice.sourceName
-            loadImageUrl(imgContainer,notice.urlToImage)
+            tvDate.text = Utility.formatDate(notice.publishedAt)
+            loadImageUrl(imgContainer, notice.urlToImage)
         }
 
         private fun loadImageUrl(imageView: ImageView, url: String?) {

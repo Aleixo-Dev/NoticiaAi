@@ -72,4 +72,6 @@ class FirebaseUserDataSource @Inject constructor(
         }
     }
 
+    override suspend fun fetchIdCurrentUser() = auth
+
 }
