@@ -15,4 +15,8 @@
     <string name="perfil">Perfil</string>
     <string name="inicio">Inicio</string>
     <string name="notice_name">Notice</string>
+    <string name="background_img">background_img</string>
+    <string name="nicolas_aleixo">Nicolas Aleixo</string>
+    <string name="nicolas_gmail_com">nicolas@gmail.com</string>
+    <string name="salvar">Salvar</string>
 </resources>
