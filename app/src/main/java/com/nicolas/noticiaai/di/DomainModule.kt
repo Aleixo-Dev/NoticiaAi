@@ -1,7 +1,7 @@
 package com.nicolas.noticiaai.di
 
 import com.nicolas.noticiaai.domain.usecase.CreateUserUseCase
-import com.nicolas.noticiaai.domain.usecase.CreateUserUseCaseImpl
+import com.nicolas.noticiaai.domain.implementation.CreateUserUseCaseImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

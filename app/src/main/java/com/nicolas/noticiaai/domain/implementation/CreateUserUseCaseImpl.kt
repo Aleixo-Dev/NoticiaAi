@@ -1,9 +1,9 @@
-package com.nicolas.noticiaai.domain.usecase
+package com.nicolas.noticiaai.domain.implementation
 
 import android.net.Uri
 import com.nicolas.noticiaai.common.User
 import com.nicolas.noticiaai.data.datasource.remote.firebase.UserRepository
-import java.util.*
+import com.nicolas.noticiaai.domain.usecase.CreateUserUseCase
 import javax.inject.Inject
 
 class CreateUserUseCaseImpl @Inject constructor(
