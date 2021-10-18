@@ -21,7 +21,6 @@ class AdapterMain(
         private val tvDescriptionNotice: TextView = binding.tvDescriptionNotice
         private val tvSourceName: TextView = binding.tvSourceName
         private val imgContainer: ImageView = binding.imgContainer
-        private val tvDate: TextView = binding.tvDate
 
         fun bind(notice: NoticeUiDomain) {
             tvDescriptionNotice.text = notice.content
