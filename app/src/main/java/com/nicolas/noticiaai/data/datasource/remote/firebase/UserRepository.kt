@@ -14,4 +14,6 @@ class UserRepository @Inject constructor(
 
     suspend fun createUser(user: User) = dataSource.createUser(user)
 
+    suspend fun fetchIdCurrentUser() = dataSource.fetchIdCurrentUser()
+
 }
