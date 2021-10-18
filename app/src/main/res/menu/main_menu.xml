@@ -10,7 +10,7 @@
         android:icon="@drawable/ic_description_black_24dp"
         android:title="@string/notice_name" />
     <item
-        android:id="@+id/profile"
+        android:id="@+id/profile_id"
         android:icon="@drawable/ic_account_circle_black_24dp"
         android:title="@string/perfil" />
 </menu>

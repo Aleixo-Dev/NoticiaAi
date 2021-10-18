@@ -11,4 +11,6 @@ interface UserDataSource {
 
     suspend fun createUser(user: User): User
 
+    suspend fun fetchIdCurrentUser() : String
+
 }

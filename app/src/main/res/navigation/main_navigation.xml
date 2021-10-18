@@ -8,4 +8,9 @@
         android:id="@+id/home"
         android:name="com.nicolas.noticiaai.presentation.home.HomeFragment"
         android:label="HomeFragment" />
+    <fragment
+        android:id="@+id/profile_id"
+        android:name="com.nicolas.noticiaai.presentation.profile.ProfileFragment"
+        android:label="profile_fragment"
+        tools:layout="@layout/profile_fragment" />
 </navigation>
