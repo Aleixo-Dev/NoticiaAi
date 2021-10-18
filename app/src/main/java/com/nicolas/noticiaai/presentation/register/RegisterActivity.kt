@@ -14,6 +14,7 @@ import com.google.firebase.storage.FirebaseStorage
 import com.nicolas.noticiaai.databinding.ActivityRegisterBinding
 import com.nicolas.noticiaai.MainActivity
 import com.nicolas.noticiaai.common.Constants
+import com.nicolas.noticiaai.common.LoadingUtils
 import com.nicolas.noticiaai.presentation.login.LoginActivity
 import dagger.hilt.android.AndroidEntryPoint
 import java.io.File
@@ -48,6 +49,7 @@ class RegisterActivity : AppCompatActivity() {
                 if (inputName.text.isNullOrEmpty().not()) {
                     if (inputEmail.text.isNullOrEmpty().not()) {
                         if (inputPassword.text.isNullOrEmpty().not()) {
+                            LoadingUtils.showDialog(this@RegisterActivity, true)
                             registerAccount(
                                 inputEmail.text.toString(),
                                 inputPassword.text.toString()
@@ -102,6 +104,7 @@ class RegisterActivity : AppCompatActivity() {
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener {
                 if (it.isSuccessful) {
+                    LoadingUtils.hideDialog()
                     Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show()
                     startActivity(Intent(this, MainActivity::class.java))
                     finish()

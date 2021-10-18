@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.google.firebase.auth.FirebaseAuth
 import com.nicolas.noticiaai.MainActivity
+import com.nicolas.noticiaai.common.LoadingUtils
 import com.nicolas.noticiaai.common.showToast
 import com.nicolas.noticiaai.databinding.ActivityLoginBinding
 import com.nicolas.noticiaai.presentation.register.RegisterActivity
@@ -32,6 +33,7 @@ class LoginActivity : AppCompatActivity() {
             buttonLogin.setOnClickListener {
                 if (inputEmailLogin.text.isNullOrEmpty().not()) {
                     if (inputPasswordLogin.text.isNullOrEmpty().not()) {
+                        LoadingUtils.showDialog(this@LoginActivity, true)
                         loginAccount(
                             inputEmailLogin.text.toString(),
                             inputPasswordLogin.text.toString()
@@ -55,6 +57,7 @@ class LoginActivity : AppCompatActivity() {
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener {
                 if (it.isSuccessful) {
+                    LoadingUtils.hideDialog()
                     startActivity(Intent(this, MainActivity::class.java))
                     finish()
                 }
